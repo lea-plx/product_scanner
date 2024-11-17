@@ -9,6 +9,8 @@ services:
       # - ./product_scanner:/data_product_scanner         ici map notre dossier local au dossier de notre container (data_product_scanner) (volume mappé)
       - product_manager_volume:/var/lib/mysql # quand changement dans container (data_product_scanner) rentre les changements dans le volume
       #besoin du nom du fichier où mysql stock data (/var/lib/mysql)
+    ports:
+      - 3306:3306
 
 volumes:
   product_manager_volume: # création d'un volume (manager)
