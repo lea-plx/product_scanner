@@ -1,11 +1,16 @@
-#version : 
+#version : "3.9"         # version de docker compose (pour éviter casse si changement)
 
-services : 
-  db :
-    image : mysql:9.1.0
-    volumes  : 
+services:
+  db:
+    image: mysql:9.1.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=root            #besoin de cette variable d'environnement pour se co mysql
+    volumes:
       # - ./product_scanner:/data_product_scanner         ici map notre dossier local au dossier de notre container (data_product_scanner) (volume mappé)
-      - product_manager_volume:/data_product_scanner
+      - product_manager_volume:/var/lib/mysql # quand changement dans container (data_product_scanner) rentre les changements dans le volume
+      #besoin du nom du fichier où mysql stock data (/var/lib/mysql)
 
-volumes : 
-  product_manager_volume:       # création d'un volume (manager)
+volumes:
+  product_manager_volume: # création d'un volume (manager)
+
+# volume comme un dossier caché qui stock des infos
