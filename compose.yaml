@@ -1,0 +1,11 @@
+#version : 
+
+services : 
+  db :
+    image : mysql:9.1.0
+    volumes  : 
+      # - ./product_scanner:/data_product_scanner         ici map notre dossier local au dossier de notre container (data_product_scanner) (volume mappé)
+      - product_manager_volume:/data_product_scanner
+
+volumes : 
+  product_manager_volume:       # création d'un volume (manager)
