@@ -9,8 +9,8 @@
             "server": "localhost",
             "port": 3306,
             "driver": "MySQL",
-            "name": "boo",
-            "database": "boo",
+            "name": "product_scanner",
+            "database": "product",
             "username": "root",
             "password": "root"
         }
