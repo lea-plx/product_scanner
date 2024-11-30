@@ -24,13 +24,25 @@
 #     l = [elm for elm in f.read().splitlines()]
 #     print (l)
 
-import glob 
+# import glob 
 
-file_names = glob.glob("*.txt")
-dico = {}
+# file_names = glob.glob("*.txt")
+# dico = {}
 
-for file in file_names:
-    with open (file, "r") as f:
-        dico[file] = f.read().splitlines()
+# for file in file_names:
+#     with open (file, "r") as f:
+#         dico[file] = f.read().splitlines()
 
-print (dico)
+# print (dico)
+
+
+import numpy as np 
+
+def initialisation (m, n):
+    tab = np.random.randn(m,n)
+    init1 = np.ones((m, 1))
+    concatenate = np.concatenate((tab,init1), axis=1)
+    return concatenate
+
+result = initialisation(3,4)
+print (result)
