@@ -1,3 +1,7 @@
+import numpy as np 
+import matplotlib.pyplot as plt
+
+
 # liste = ["boo", "boo", "boo"]
 # dico = { k+1:v*(k+1) for k, v in enumerate(liste)}
 # print(dico)
@@ -36,13 +40,51 @@
 # print (dico)
 
 
-import numpy as np 
+# def initialisation (m, n):
+#     tab = np.random.randn(m,n)
+#     init1 = np.ones((m, 1))
+#     concatenate = np.concatenate((tab,init1), axis=1)
+#     return concatenate
 
-def initialisation (m, n):
-    tab = np.random.randn(m,n)
-    init1 = np.ones((m, 1))
-    concatenate = np.concatenate((tab,init1), axis=1)
-    return concatenate
+# result = initialisation(3,4)
+# print (result)
 
-result = initialisation(3,4)
-print (result)
+# from scipy import misc 
+# face = misc.face(gray=True)
+
+# l = face.shape[0]
+# c = face.shape[1]
+
+# zoom = face[l//4:-l//4, c//4:-c//4]
+# zoom[zoom>150]=255
+# zoom[zoom<100]=0
+# plt.imshow(zoom, cmap=plt.cm.gray)
+# plt.show()
+
+# np.random.seed(0)
+# A = np.random.randint(0,100, [10,5])
+# moyenne = A.mean(axis=0)
+# ecart_type = A.std(axis=0)
+
+# print ((A-A.mean(axis=0))/A.std(axis=0))
+
+# for col in range (A.shape[1]):
+#     A[:,col] = (A[:,col]-moyenne[col])/ecart_type[col]
+
+# print(A.mean(axis=0))
+# print(A.std(axis=0))
+
+
+dataset = {f"experience {i}":np.random.randn(100) for i in range (4)}
+
+def graphique (dataset) :
+    plt.figure()
+    for experience, index in zip(dataset.keys(), range(1, len(dataset.keys())+1)):
+        plt.subplot(2,2,index)
+        plt.plot(dataset[experience])
+        plt.title(experience)
+
+    plt.show()
+
+
+graphique(dataset=dataset)
